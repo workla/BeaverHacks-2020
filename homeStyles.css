@@ -1,0 +1,103 @@
+body {
+	font-family: 'Arvo', serif;
+}
+/*menu styles*/
+.menu {
+	background-color: #DC4405;
+	top: 0;
+	width: 100%;
+	height: 75px;
+	z-index: 100;
+}
+/*OSU CS Course Explorer Name Styling*/
+#nameOfCompany {
+	float: left;
+	color: #FFFFFF;
+	font-size: 24px;
+	text-align: center;
+	padding-left: 16px;
+}
+/*menu links*/
+.menu a {
+	float: right;
+	font-size: 20px;
+	text-align: center;
+	color: #FFFFFF;
+	text-decoration: none;
+	padding-top: 26px;
+}
+/*menu dropdown*/
+.dropdown {
+	float: right;
+	overflow: hidden;
+	padding-left: 10px;
+	padding-top: 16px;
+}
+
+/*button showing before dropdown*/
+.courseButton {
+	font-size: 20px;
+	text-align: center;
+	color: #FFFFFF;
+	padding: 10px;
+	background-color: #DC4405;
+	border-style: none;
+}
+
+/*hidden dropdown content until hovered over*/
+.classList {
+	display: none;
+	position: absolute;
+	max-width: 30%;
+	max-height: 250px;
+	z-index: 1;
+	background-color: #f5f5f5;
+	box-shadow: 8px 8px 8px 8px rgba(0,0,0,0.2);
+	right: 0;
+	overflow: auto;
+}
+.classList a {
+	padding: 10px;
+	color: black;
+	display: block;
+	text-align: right;
+	font-size: 14px;
+}
+
+/*hovering over dropdown opens menu*/
+.dropdown:hover .classList {
+	display: block;
+}
+
+.dropdown:hover .courseButton {
+	background-color: black;
+}
+
+.classList a:hover {
+	background-color: #e1e1e1;
+}
+
+/*body contents*/
+#about {
+	width: 70%;
+	padding-left: 15%;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+/*footer contents*/
+#bottom {
+	background-color: black;
+	width: 100%
+}
+
+#bottomText {
+	width: 70%;
+	padding-left: 15%;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+#bottomText p {
+	color: white;
+}

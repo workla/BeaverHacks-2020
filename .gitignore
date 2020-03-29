@@ -15,6 +15,9 @@
 # credentials
 /config/credentials.js
 
+#database
+/config/dbcon.js
+
 # misc
 .DS_Store
 .env

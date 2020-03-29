@@ -3,6 +3,7 @@ const config = require("../config");
 
 module.exports.registerRoutes = app => {
   app.use("/", controllers.home);
+  app.use("/course", controllers.course)
 };
 
 module.exports.registerErrorHandlers = app => {

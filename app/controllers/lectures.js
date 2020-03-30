@@ -8,12 +8,12 @@ const router = express.Router();
 
 /* ROUTES **/
 
-router.get("/rate", function(req, res) {
-    const { rating } = req.body;
+router.post("/rate", function(req, res) {
+    const { rating, courseId } = req.body;
 
     let lectRating = 'lectVotes' + rating;
 
-    mysql.pool.query(`UPDATE course SET ? = ? + 1 WHERE id = ?`, [lectRating, lectRating, courseId], 
+    mysql.pool.query(`UPDATE courses SET ${lectRating} = ${lectRating} + 1 WHERE id = ?`, [courseId], 
         function(err, rows){
             if(err){
                 console.error(err);

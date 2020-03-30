@@ -6,7 +6,6 @@ function renderCoursePage(courseId, res) {
 
 function getCourseData(courseId, res) {
     var context = {};
-    console.log('checking')
     mysql.pool.query(`SELECT * FROM courses WHERE courses.id=?`, 
                     [courseId], function(err, rows){
         if(err){
@@ -60,7 +59,10 @@ function getCourseBooks(context, res) {
             return;
         }
         context.books = rows;
-        context.books.sort((a, b) => {a.votes - b.votes});
+        context.books.sort((a, b) => b.votes - a.votes);
+        for (book in context.books) {
+            book.url = decodeURI(book.url);
+        }
         getCourseVideos(context, res);
         return;
     });
@@ -68,15 +70,22 @@ function getCourseBooks(context, res) {
 
 function getCourseVideos(context, res) {
     mysql.pool.query(`SELECT id, title, url, votes FROM videos WHERE videos.courseId=?`, 
-                    [context.id], function(err, rows, fields){
+                    [context.id], function(err, rows){
         if(err){
             console.error(err);
             return;
         }
         context.videos = rows;
-        context.books.sort((a, b) => {a.votes - b.votes});
+        context.videos.sort((a, b) => b.votes - a.votes);
+        for (video in context.videos) {
+            video.url = decodeURI(video.url);
+        }
         console.log(context);
-        res.render('classBody');
+        if (res.type == 'redirect') {
+            res.redirect(`/course/${context.id}`);
+        } else {
+            res.render('classBody', context);
+        }
     });
 }
 

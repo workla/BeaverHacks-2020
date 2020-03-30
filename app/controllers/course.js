@@ -7,7 +7,6 @@ const router = express.Router();
 
 router.get("/:courseId", function(req, res) {
     var context = {};
-    console.log(req.params.courseId);
     renderCoursePage(req.params.courseId, res);
 });
 

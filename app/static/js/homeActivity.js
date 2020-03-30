@@ -15,7 +15,7 @@ function setup()
 		var fifthStar = document.getElementById('text5');
 		fifthStar.style = "color: black";
 		var name = "one";
-		textBar(name);
+		textBar(1);
 	});
 	document.getElementById('text2').addEventListener('click', function(event){	
 		var firstStar = document.getElementById('text1');
@@ -29,7 +29,7 @@ function setup()
 		var fifthStar = document.getElementById('text5');
 		fifthStar.style = "color: black";
 		var name = "two";
-		textBar(name);
+		textBar(2);
 	});	
 	document.getElementById('text3').addEventListener('click', function(event){	
 		var firstStar = document.getElementById('text1');
@@ -43,7 +43,7 @@ function setup()
 		var fifthStar = document.getElementById('text5');
 		fifthStar.style = "color: black";
 		var name = "three";
-		textBar(name);
+		textBar(3);
 	});	
 	document.getElementById('text4').addEventListener('click', function(event){	
 		var firstStar = document.getElementById('text1');
@@ -57,7 +57,7 @@ function setup()
 		var fifthStar = document.getElementById('text5');
 		fifthStar.style = "color: black";
 		var name = "four";
-		textBar(name);
+		textBar(4);
 	});	
 	document.getElementById('text5').addEventListener('click', function(event){	
 		var firstStar = document.getElementById('text1');
@@ -71,7 +71,7 @@ function setup()
 		var fifthStar = document.getElementById('text5');
 		fifthStar.style = "color: #DC4405";
 		var name = "five";
-		textBar(name);
+		textBar(5);
 	});	
 	document.getElementById('lecture1').addEventListener('click', function(event){	
 		var firstStar = document.getElementById('lecture1');
@@ -85,7 +85,7 @@ function setup()
 		var fifthStar = document.getElementById('lecture5');
 		fifthStar.style = "color: black";
 		var name = "one";
-		lectureBar(name);
+		lectureBar(1);
 	});
 	document.getElementById('lecture2').addEventListener('click', function(event){	
 		var firstStar = document.getElementById('lecture1');
@@ -99,7 +99,7 @@ function setup()
 		var fifthStar = document.getElementById('lecture5');
 		fifthStar.style = "color: black";
 		var name = "two";
-		lectureBar(name);
+		lectureBar(2);
 	});	
 	document.getElementById('lecture3').addEventListener('click', function(event){	
 		var firstStar = document.getElementById('lecture1');
@@ -113,7 +113,7 @@ function setup()
 		var fifthStar = document.getElementById('lecture5');
 		fifthStar.style = "color: black";
 		var name = "three";
-		lectureBar(name);
+		lectureBar(3);
 	});	
 	document.getElementById('lecture4').addEventListener('click', function(event){	
 		var firstStar = document.getElementById('lecture1');
@@ -127,7 +127,7 @@ function setup()
 		var fifthStar = document.getElementById('lecture5');
 		fifthStar.style = "color: black";
 		var name = "four";
-		lectureBar(name);
+		lectureBar(4);
 	});	
 	document.getElementById('lecture5').addEventListener('click', function(event){	
 		var firstStar = document.getElementById('lecture1');
@@ -141,7 +141,7 @@ function setup()
 		var fifthStar = document.getElementById('lecture5');
 		fifthStar.style = "color: #DC4405";
 		var name = "five";
-		lectureBar(name);
+		lectureBar(5);
 	});			
 }
 
@@ -154,7 +154,7 @@ function textBar(num)
 
 	//send the number they voted for as id
 	var idOfPage = document.getElementById("idOfPage");
-	textStarRating.courseId = idOfPage.value;
+	textStarRating.courseId = idOfPage.getAttribute("value");
 	textStarRating.rating = num;
 	//open post request
 	req1.open('POST', '/textbook/rate', true);
@@ -167,8 +167,10 @@ function textBar(num)
 			//update bar graph
 		    //parse response
 		    var response = JSON.parse(req1.responseText);
-		    var row1 = document.getElementById("tbar1"); 
-	        row1.style.width = response.one + "%";
+			var row1 = document.getElementById("tbar1"); 
+			response.one = response.one + "%";
+			console.log(response.one);
+	        row1.style.width = response.one;
 	        var row2 = document.getElementById("tbar2"); 
 	        row2.style.width = response.two + "%";
 	        var row3 = document.getElementById("tbar3"); 
@@ -199,7 +201,7 @@ function lectureBar(num)
 
 	//send the number they voted for as id
 	var idOfPage = document.getElementById("idOfPage");
-	lectureStarRating.courseId = idOfPage.value;
+	lectureStarRating.courseId = idOfPage.getAttribute("value");
 	lectureStarRating.rating = num;
 	//open post request
 	req1.open('POST', '/lectures/rate', true);
@@ -244,7 +246,7 @@ console.log("made it to function");
 	//send the number they voted for as id
 	bookAndPageInfo.bookId = id;
 	var idForPage = document.getElementById("idOfPage");
-	bookAndPageInfo.courseId = idForPage.value;
+	bookAndPageInfo.courseId = idForPage.getAttribute("value");
 
 	//open post request
 	req1.open('POST', '/books/upvote', true);
@@ -279,7 +281,7 @@ function sendBookDownVote(id){
 	//send the number they voted for as id
 	bookAndPageInfo.bookId = id;
 	var idForPage = document.getElementById("idOfPage");
-	bookAndPageInfo.courseId = idForPage.value;
+	bookAndPageInfo.courseId = idForPage.getAttribute("value");
 
 	//open post request
 	req1.open('POST', '/books/downvote', true);
@@ -312,7 +314,7 @@ function sendOnlineUpVote(id){
 	//send the number they voted for as id
 	onlineAndPageInfo.videoId = id;
 	var idForPage = document.getElementById("idOfPage");
-	bookAndPageInfo.courseId = idForPage.value;
+	bookAndPageInfo.courseId = idForPage.getAttribute("value");
 
 	//open post request
 	req1.open('POST', '/videos/upvote', true);
@@ -345,7 +347,7 @@ function sendOnlineDownVote(id){
 	//send the number they voted for as id
 	onlineAndPageInfo.videoId = id;
 	var idForPage = document.getElementById("idOfPage");
-	bookAndPageInfo.courseId = idForPage.value;
+	bookAndPageInfo.courseId = idForPage.getAttribute("value");
 
 	//open post request
 	req1.open('POST', '/videos/downvote', true);

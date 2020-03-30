@@ -9,13 +9,15 @@ const router = express.Router();
 /* ROUTES */
 
 router.post("/add", function(req, res) {
-    const { title, url, votes, courseId } = req.body;
-    mysql.pool.query(`INSERT INTO videos (title, url, votes, courseId) VALUES (?, ?, ?, ?)`, [title, url, votes, courseId], 
+    let { title, url, courseId } = req.body;
+    url = encodeURI(url);
+    mysql.pool.query(`INSERT INTO videos (title, url, votes, courseId) VALUES (?, ?, ?, ?)`, [title, url, 1, courseId], 
         function(err, rows){
             if(err){
                 console.error(err);
                 return;
             }
+            res.type = 'redirect';
             renderCoursePage(courseId, res);
         }
     );
@@ -29,7 +31,7 @@ router.post("/upvote", function(req, res) {
                 console.error(err);
                 return;
             }
-            renderCoursePage(courseId, res);
+            res.json({result: 'true'});
         }
     );
 });
@@ -42,7 +44,7 @@ router.post("/downvote", function(req, res) {
                 console.error(err);
                 return;
             }
-            renderCoursePage(courseId, res);
+            res.json({result: 'true'});
         }
     );
 });

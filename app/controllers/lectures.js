@@ -6,7 +6,7 @@ const getLecturesRatings = courseHelpers.getLecturesRatings;
 
 const router = express.Router();
 
-/* ROUTES */
+/* ROUTES **/
 
 router.get("/rate", function(req, res) {
     const { rating } = req.body;

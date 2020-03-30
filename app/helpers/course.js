@@ -54,6 +54,7 @@ function getCourseBooks(context, res) {
             return;
         }
         context.books = rows;
+        context.books.sort((a, b) => {a.votes - b.votes});
         getCourseVideos(context, res);
         return;
     });
@@ -67,6 +68,7 @@ function getCourseVideos(context, res) {
             return;
         }
         context.videos = rows;
+        context.books.sort((a, b) => {a.votes - b.votes});
         console.log(context);
         res.render('home/index');
     });

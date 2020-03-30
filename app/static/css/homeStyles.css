@@ -16,6 +16,7 @@ body {
 	font-size: 24px;
 	text-align: center;
 	padding-left: 16px;
+	padding-top: 25px;
 }
 /*menu links*/
 .menu a {
@@ -47,10 +48,10 @@ body {
 /*hidden dropdown content until hovered over*/
 .classList {
 	display: none;
-	position: absolute;
+	position: fixed;
 	max-width: 30%;
 	max-height: 250px;
-	z-index: 1;
+	z-index: 100;
 	background-color: #f5f5f5;
 	box-shadow: 8px 8px 8px 8px rgba(0,0,0,0.2);
 	right: 0;
@@ -81,6 +82,10 @@ body {
 #about {
 	width: 70%;
 	padding-left: 15%;
+}
+
+#bodyDiv {
+	width: 100%;
 	padding-top: 30px;
 	padding-bottom: 30px;
 }

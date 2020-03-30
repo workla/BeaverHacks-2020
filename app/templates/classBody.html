@@ -1,0 +1,217 @@
+<!--Start of body of class page  -->
+<p id="idOfPage" style="visibility: hidden" value={{id}}>{{id}}</p>
+<div id="courseTitle">
+  <h3>{{name}}</h3>
+</div>
+<div id="ratingsBookBox">
+  <div class="bookReview">
+    <h4>Reviews of Assigned Textbook</h4>
+    <p class="rateMe">Rate Me:  </p>
+    <i id="text1" class="fa fa-star-o"></i>
+    <i id="text2" class="fa fa-star-o"></i>
+    <i id="text3" class="fa fa-star-o"></i>
+    <i id="text4" class="fa fa-star-o"></i>
+    <i id="text5" class="fa fa-star-o"></i>
+
+    <div class="starRating">
+      <div>
+        <p>5 Star</p>
+      </div>
+    </div>
+    <div class="barChart">
+      <div class="barContainer">
+        <div id="tbar5" style="width:‘{{textbook.five}}%’"></div>
+      </div>
+    </div>
+
+    <div class="starRating">
+      <div>
+        <p>4 Star</p>
+      </div>
+    </div>
+    <div class="barChart">
+      <div class="barContainer">
+        <div id="tbar4" style="width:‘{{textbook.four}}%’"></div>
+      </div>
+    </div>
+
+    <div class="starRating">
+      <div>
+        <p>3 Star</p>
+      </div>
+    </div>
+    <div class="barChart">
+      <div class="barContainer">
+        <div id="tbar3" style="width:‘{{textbook.three}}%’"></div>
+      </div>
+    </div>
+
+    <div class="starRating">
+      <div>
+        <p>2 Star</p>
+      </div>
+    </div>
+    <div class="barChart">
+      <div class="barContainer">
+        <div id="tbar2" style="width:‘{{textbook.two}}%’"></div>
+      </div>
+    </div>
+
+    <div class="starRating">
+      <div>
+        <p>1 Star</p>
+      </div>
+    </div>
+    <div class="barChart">
+      <div class="barContainer">
+        <div id="tbar1" style="width:‘{{textbook.one}}%’"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="ratingsLectureBox">
+  <div class="bookReview">
+    <h4>Reviews of Class Lectures</h4>
+    <p class="rateMe">Rate Me:  </p>
+    <i id="lecture1" class="fa fa-star-o"></i>
+    <i id="lecture2" class="fa fa-star-o"></i>
+    <i id="lecture3" class="fa fa-star-o"></i>
+    <i id="lecture4" class="fa fa-star-o"></i>
+    <i id="lecture5" class="fa fa-star-o"></i>
+
+    <div class="starRating">
+      <div>
+        <p>5 Star</p>
+      </div>
+    </div>
+    <div class="barChart">
+      <div class="barContainer">
+        <div id="lbar5" style="width:‘{{lectures.five}}%’"></div>
+      </div>
+    </div>
+
+    <div class="starRating">
+      <div>
+        <p>4 Star</p>
+      </div>
+    </div>
+    <div class="barChart">
+      <div class="barContainer">
+        <div id="lbar4" style="width:‘{{lectures.four}}%’"></div>
+      </div>
+    </div>
+
+    <div class="starRating">
+      <div>
+        <p>3 Star</p>
+      </div>
+    </div>
+    <div class="barChart">
+      <div class="barContainer">
+        <div id="lbar3" style="width:‘{{lectures.three}}%’"></div>
+      </div>
+    </div>
+
+    <div class="starRating">
+      <div>
+        <p>2 Star</p>
+      </div>
+    </div>
+    <div class="barChart">
+      <div class="barContainer">
+        <div id="lbar2" style="width:‘{{lectures.two}}%’"></div>
+      </div>
+    </div>
+
+    <div class="starRating">
+      <div>
+        <p>1 Star</p>
+      </div>
+    </div>
+    <div class="barChart">
+      <div class="barContainer">
+        <div id="lbar1" style="width:‘{{lectures.one}}%’"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="listOfTextSources">
+  <div class="sourceReview">
+    <h4>Helpful Alternative Textbooks</h4>
+    <form action="/books/add" method="post">
+      <fieldset>
+        <legend>Submit a Suggested Book Resource:</legend>
+        <input id="submission1" type="submit" value="Submit Book" />
+        <label>Name of Book:   <input type="text" name="title" size="45%" maxlength="100">
+        </label>
+        <label>Link:   <input type="text" name="url" size="50%" maxlength="100">
+        </label>
+        <input type="hidden" name="courseId" value={{id}}>
+        <br>
+      </fieldset>
+    </form>
+    <table id="bookTable" style="table-layout:fixed;">
+      <col width="15%">
+      <col width="30%">
+      <col width="50%">
+      <col width="5%">
+      <tr>
+        <th>Vote Count</th>
+        <th>Book</th>
+        <th>Link</th>
+        <th>Vote</th>
+      </tr>
+      {{#each books}}
+      <tr>
+        <td>{{this.votes}}</td>
+        <td>{{this.title}}</td>
+        <td><a href="{{this.link}}">{{this.url}}</a></td>
+        <td><i class="fas fa-chevron-up" onclick="sendBookUpVote({{this.id}})"></i><i class="fas fa-chevron-down" onclick="sendBookDownVote({{this.id}})"></i></td>
+      </tr>
+      {{/each}}
+    </table>
+  </div>
+</div>
+
+<div id="listOfOnlineSources">
+  <div class="sourceReview">
+    <h4>Helpful Alternative Online Sources</h4>
+    <form action="/videos/add" method="post">
+      <fieldset>
+        <legend>Submit a Suggested Online Resource:</legend>
+        <input id="submission2" type="submit" value="Submit Online Source">
+        <label>Name of Online Resource:   <input type="text" name="source" size="25%" maxlength="100">
+        </label>
+        <label>Link to Source:   <input type="text" name="link" size="40%" maxlength="100">
+        </label>
+        <input type="hidden" name="courseId" value={{id}}>
+        
+      </fieldset>
+    </form>
+    <table id="onlineTable" style="table-layout:fixed;">
+      <col width="15%">
+      <col width="35%">
+      <col width="55%">
+      <col width="5%">
+      <tr>
+        <th>Vote Count</th>
+        <th>Source</th>
+        <th>Link</th>
+        <th>Vote</th>
+      </tr>
+      {{#each videos}}
+      <tr>
+        <td>{{this.votes}}</td>
+        <td>{{this.title}}</td>
+        <td><a href="{{this.link}}">{{this.url}}</a></td>
+        <td><i class="fas fa-chevron-up" onclick="sendOnlineUpVote({{this.id}})"></i><i class="fas fa-chevron-down" onclick="sendOnlineDownVote({{this.id}})"></i></td>
+      </tr>
+      {{/each}}
+    </table>
+    <br>
+  </div>
+</div>

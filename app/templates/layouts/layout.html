@@ -2,21 +2,63 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>My Hackathon Project</title>
+    <title>OSU CS Course Survivor</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/colors.css" />
     <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/homeStyles.css" />
+    <link rel="stylesheet" href="/css/courseStyle.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/12f776d7e1.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    {{> header }}
-    {{{ body }}}
-    {{> footer }}
+    <div class="menu">
+		<p id="nameOfCompany">OSU CS Course Survivor</p>
+		<div class="dropdown">
+  			<button class="courseButton">Courses</button>
+  			<div class="classList">
+    			<a href="/course/cs161">CS 161: Introduction to Computer Science I</a>
+    			<a href="/course/cs162">CS 162: Introduction to Computer Science II</a>
+    			<a href="/course/cs225">CS 225: Discrete Structures in Computer Science</a>
+    			<a href="/course/cs261">CS 261: Data Structures</a>
+    			<a href="/course/cs271">CS 271: Computer Architecture and Assembly Language</a>
+    			<a href="/course/cs290">CS 290: Web Development</a>
+    			<a href="/course/cs325">CS 325: Analysis of Algorithms</a>
+    			<a href="/course/cs340">CS 340: Introduction to Databases</a>
+    			<a href="/course/cs344">CS 344: Operating Systems</a>
+    			<a href="/course/cs352">CS 352: Introduction to Usability Engineering</a>
+    			<a href="/course/cs361">CS 361: Software Engineering I</a>
+    			<a href="/course/cs362">CS 362: Software Engineering II</a>
+    			<a href="/course/cs372">CS 372: Introduction to Computer Networks</a>
+    			<a href="/course/cs373">CS 373: Defense Against the Dark Arts</a>
+    			<a href="/course/cs464">CS 464: Open Source Software</a>
+    			<a href="/course/cs467">CS 467: Online Capstone Project</a>
+    			<a href="/course/cs475">CS 475: Introduction to Parallel Programming</a>
+    			<a href="/course/cs492">CS 492: Mobile Software Development</a>
+    			<a href="/course/cs493">CS 493: Cloud Application Development</a>
+  			</div>
+		</div>
+		<a href="/">Home</a>
+	</div>
+
+	<div id="bodyDiv">
+		{{{ body }}}
+	</div>
+    
+
+
+    <div id="bottom">
+		<div id="bottomText">
+			<p>Created by Team Fork for OSU BeaverHacks 2020</p>
+		</div>
+	</div>
 
     <!-- Scripts for Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="/js/homeActivity.js" type="text/javascript"></script>
   </body>
 </html>

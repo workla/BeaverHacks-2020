@@ -1,80 +1,9 @@
 body {
 	font-family: 'Arvo', serif;
 }
-/*menu styles*/
-.menu {
-	background-color: #DC4405;
-	top: 0;
-	width: 100%;
-	height: 75px;
-	z-index: 100;
-}
-/*OSU CS Course Explorer Name Styling*/
-#nameOfCompany {
-	float: left;
-	color: #FFFFFF;
-	font-size: 24px;
-	text-align: center;
-	padding-left: 16px;
-}
-/*menu links*/
-.menu a {
-	float: right;
-	font-size: 20px;
-	text-align: center;
-	color: #FFFFFF;
-	text-decoration: none;
-	padding-top: 26px;
-}
-/*menu dropdown*/
-.dropdown {
-	float: right;
-	overflow: hidden;
-	padding-left: 10px;
-	padding-top: 16px;
-}
 
-/*button showing before dropdown*/
-.courseButton {
-	font-size: 20px;
-	text-align: center;
-	color: #FFFFFF;
-	padding: 10px;
-	background-color: #DC4405;
-	border-style: none;
-}
-
-/*hidden dropdown content until hovered over*/
-.classList {
-	display: none;
-	position: absolute;
-	max-width: 30%;
-	max-height: 250px;
-	z-index: 1;
-	background-color: #f5f5f5;
-	box-shadow: 8px 8px 8px 8px rgba(0,0,0,0.2);
-	right: 0;
-	overflow: auto;
-}
-.classList a {
-	padding: 10px;
-	color: black;
-	display: block;
-	text-align: right;
-	font-size: 14px;
-}
-
-/*hovering over dropdown opens menu*/
-.dropdown:hover .classList {
-	display: block;
-}
-
-.dropdown:hover .courseButton {
-	background-color: black;
-}
-
-.classList a:hover {
-	background-color: #e1e1e1;
+#idOfPage {
+	height: 0px;
 }
 
 /*body contents*/
@@ -83,9 +12,121 @@ body {
 	padding-left: 30px;
 }
 
-.bookReview {
-	width: 70%;
-	padding-left: 15%;
+/*stars*/
+.rateMe {
+	float: left;
+	margin-bottom: 3px;
+	padding-right: 3px;
+}
+
+#text1 {
+	font-size: 18px;
+	color: black;
+}
+
+#text1:hover {
+	color: #DC4405;
+}
+
+#text2 {
+	font-size: 18px;
+	color: black;
+}
+
+#text2:hover {
+	color: #DC4405;
+}
+
+#text2:hover #text1 {
+	color: #DC4405;
+}
+
+#text3 {
+	font-size: 18px;
+	color: black;
+}
+
+#text3:hover {
+	color: #DC4405;
+}
+
+#text4 {
+	font-size: 18px;
+	color: black;
+}
+
+#text4:hover {
+	color: #DC4405;
+}
+
+#text5 {
+	font-size: 18px;
+	color: black;
+}
+
+#text5:hover {
+	color: #DC4405;
+}
+
+#lecture1 {
+	font-size: 18px;
+	color: black;
+}
+
+#lecture1:hover {
+	color: #DC4405;
+}
+
+#lecture2 {
+	font-size: 18px;
+	color: black;
+}
+
+#lecture2:hover {
+	color: #DC4405;
+}
+
+#lecture3 {
+	font-size: 18px;
+	color: black;
+}
+
+#lecture3:hover {
+	color: #DC4405;
+}
+
+#lecture4 {
+	font-size: 18px;
+	color: black;
+}
+
+#lecture4:hover {
+	color: #DC4405;
+}
+
+#lecture5 {
+	font-size: 18px;
+	color: black;
+}
+
+#lecture5:hover {
+	color: #DC4405;
+}
+
+
+/*ratings bar graph stuff*/
+#ratingsBookBox {
+	float: left;
+	width: 50%;
+	padding-left: 10%;
+	padding-top: 15px;
+	padding-bottom: 30px;
+}
+
+#ratingsLectureBox {
+	float: left;
+	width: 50%;
+	padding-right: 10%;
 	padding-top: 15px;
 	padding-bottom: 30px;
 }
@@ -111,26 +152,144 @@ body {
 	background-color: #f1f1f1;
 }
 
-#bar5 {
+#tbar5 {
 	width:50%;
 	height: 15px;
 	background-color: #DC4405;
 }
 
-
-/*footer contents*/
-#bottom {
-	background-color: black;
-	width: 100%
+#tbar4 {
+	width: 50%;
+	height: 15px;
+	background-color: #DC4405;
 }
 
-#bottomText {
-	width: 70%;
-	padding-left: 15%;
-	padding-top: 30px;
+#tbar3 {
+	width: 40%;
+	height: 15px;
+	background-color: #DC4405;
+}
+
+#tbar2 {
+	width: 0%;
+	height: 15px;
+	background-color: #DC4405;
+}
+
+#tbar1 {
+	width: 20%;
+	height: 15px;
+	background-color: #DC4405;
+}
+
+#lbar5 {
+	width:90%;
+	height: 15px;
+	background-color: #DC4405;
+}
+
+#lbar4 {
+	width: 30%;
+	height: 15px;
+	background-color: #DC4405;
+}
+
+#lbar3 {
+	width: 20%;
+	height: 15px;
+	background-color: #DC4405;
+}
+
+#lbar2 {
+	width: 0%;
+	height: 15px;
+	background-color: #DC4405;
+}
+
+#lbar1 {
+	width: 0%;
+	height: 15px;
+	background-color: #DC4405;
+}
+
+
+/*table styles*/
+#listOfTextSources {
+	clear: both;
+	padding-left: 10%;
+	padding-right: 10%;
+	padding-top: 15px;
 	padding-bottom: 30px;
 }
 
-#bottomText p {
+#listOfOnlineSources {
+	padding-left: 10%;
+	padding-right: 10%;
+	padding-top: 15px;
+	padding-bottom: 30px;
+}
+
+form {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+legend {
+	font-size: 16px;
+}
+
+label {
+	font-size: 14px;
+}
+
+#submission1 {
+	background-color: #DC4405;
 	color: white;
+	float: right;
+}
+#submission2 {
+	background-color: #DC4405;
+	color: white;
+	float: right;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  padding-left: 10%
+}
+
+td, th, {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 3px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+td a {
+	word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.fa-chevron-up {
+	padding-left: 5px;
+}
+
+.fa-chevron-down {
+	padding-left: 5px;
+}
+
+
+.fa-chevron-up:hover {
+	color: #DC4405;
+}
+
+.fa-chevron-down:hover {
+	color: #DC4405;
 }

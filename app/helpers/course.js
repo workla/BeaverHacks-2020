@@ -6,13 +6,18 @@ function renderCoursePage(courseId, res) {
 
 function getCourseData(courseId, res) {
     var context = {};
+    console.log('checking')
     mysql.pool.query(`SELECT * FROM courses WHERE courses.id=?`, 
-                    [courseId], function(err, rows, fields){
+                    [courseId], function(err, rows){
         if(err){
-            console.error(err);
+            res.render("home/index");
             return;
         }
         let courseData = rows[0];
+        if (!courseData) {
+            res.render("home/index");
+            return;
+        }
         context.id = courseData.id;
         context.name = courseData.name;
 
@@ -20,8 +25,9 @@ function getCourseData(courseId, res) {
         context.textbook = getTextbookRatings(courseData);
 
         getCourseBooks(context, res);
-        return;
+        
     });
+    
 };
 
 function getLecturesRatings(data) {
@@ -70,7 +76,7 @@ function getCourseVideos(context, res) {
         context.videos = rows;
         context.books.sort((a, b) => {a.votes - b.votes});
         console.log(context);
-        res.render('home/index');
+        res.render('classBody');
     });
 }
 
